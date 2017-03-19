@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, ActivityIndicator, Button, Text, Switch } from 'react-native';
 import Link from '../../components/link';
 
 export const Home = () => (
   <View>
-    <Text> Hello react native </Text>
+    <Text> This is home </Text>
+    <Switch />
+    <ActivityIndicator />
+    <Button title="foo" onPress={console.log}/>
     <Link to="/about"> Goto about page </Link>
   </View>
 );

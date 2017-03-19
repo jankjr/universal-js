@@ -11,6 +11,7 @@ import { AppRegistry } from 'react-native-web';
 import routes from '../client/routes';
 import Html from '../client/Html';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
+import { port } from '../config';
 
 const app = express();
 
@@ -94,5 +95,10 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   );
   res.status(err.status || 500);
   res.send(`<!doctype html>${html}`);
+});
+
+/* eslint-disable no-console */
+app.listen(port, () => {
+  console.log(`The server is running at http://localhost:${port}/`);
 });
 

@@ -2,19 +2,15 @@
  * Defines the web main 'app' point
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import queryString from 'query-string';
 import UniversalRouter from 'universal-router';
 import history from '../history';
-
-const { arrayOf, object } = PropTypes;
+import routes from './routes';
 
 let currentLocation;
 class NativeApp extends React.PureComponent {
   static propTypes = {
-    routes: arrayOf(
-      object,
-    ).isRequired,
   };
 
   constructor(props) {
@@ -33,7 +29,6 @@ class NativeApp extends React.PureComponent {
   }
 
   async onLocationChange(location) {
-    const { routes } = this.props;
     currentLocation = location;
 
     try {

@@ -26,7 +26,7 @@ async function init(initializedRoutes) {
     query: queryString.parse(location.search),
   });
 
-  AppRegistry.registerComponent('App', () => (() => <App route={route} routes={initializedRoutes} />));
+  AppRegistry.registerComponent('App', () => (() => React.createElement(App, { route, routes: initializedRoutes })));
   AppRegistry.runApplication('App', {
     initialProps: {},
     rootTag: container,
@@ -48,7 +48,7 @@ if (__DEV__) {
     appInstance = null;
     AppRegistry.unmountApplicationComponentAtRootTag(container);
 
-    AppRegistry.registerComponent('Error', () => (() => <ErrorReporter error={event.error} />));
+    AppRegistry.registerComponent('Error', () => (() => React.createElement(ErrorReporter, { error: event.error })));
     AppRegistry.runApplication('Error', {
       initialProps: {},
       rootTag: container,
