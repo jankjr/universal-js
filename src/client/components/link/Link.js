@@ -48,9 +48,7 @@ class Link extends React.Component {
 
   render() {
     const { to, children, ...props } = this.props;
-    if (!to) {
-      return React.Children.only(this.props.children);
-    }
+    if (!to) return React.Children.only(this.props.children);
     return Platform.select({
       ios: <Text onPress={this.handlePress}>{children}</Text>,  // React-native
       android: <Text onPress={this.handlePress}>{children}</Text>,  // React-native

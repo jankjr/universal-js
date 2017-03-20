@@ -276,7 +276,7 @@ const serverConfig = {
           debug: false,
         }])),
         plugins: [
-          ...(rule.plgins||[]),
+          ...(rule.plugins || []),
           ['babel-plugin-module-alias', [
             { src: path.resolve(__dirname, '../node_modules/react-native-web'), expose: 'react-native' },
           ]]],
