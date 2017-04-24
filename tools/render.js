@@ -22,6 +22,8 @@ import runServer from './runServer';
 //   '/page/name/', // => build/public/page/name/index.html
 // ];
 const routes = [
+  '/',
+  '/about',
 ];
 
 async function render() {

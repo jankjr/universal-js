@@ -2,7 +2,7 @@
  * Defines the web main 'app' point
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import queryString from 'query-string';
 import UniversalRouter from 'universal-router';
 import history from '../history';
@@ -11,6 +11,7 @@ import routes from './routes';
 let currentLocation;
 class NativeApp extends React.PureComponent {
   static propTypes = {
+    route: PropTypes.object.isRequired,  // eslint-disable-line
   };
 
   constructor(props) {
@@ -18,7 +19,7 @@ class NativeApp extends React.PureComponent {
 
     currentLocation = history.location;
     this.state = {
-      route: null,
+      route: props.route,
     };
 
     this.onLocationChange(history.location);
@@ -54,10 +55,6 @@ class NativeApp extends React.PureComponent {
   }
 
   render() {
-    if (!this.state.route) {
-      return null;
-    }
-
     const { component, ...props } = this.state.route;
     return React.cloneElement(component, props);
   }

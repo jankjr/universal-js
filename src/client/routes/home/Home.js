@@ -7,7 +7,7 @@ export const Home = () => (
     <Text> This is home </Text>
     <Switch />
     <ActivityIndicator />
-    <Button title="foo" onPress={console.log}/>
+    <Button title="foo" />
     <Link to="/about"> Goto about page </Link>
   </View>
 );
