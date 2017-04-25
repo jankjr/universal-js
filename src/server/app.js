@@ -53,8 +53,8 @@ app.get('*', async (req, res, next) => {
 
     data.styles = [
       {
-        id: 'react-native-stylesheet',
-        cssText: stylesheet.slice(37, stylesheet.length - 9), // strip styletags
+        id: 'react-native-stylesheet-static',
+        cssText: stylesheet.slice('<style id="react-native-stylesheet-static">'.length, stylesheet.length - 9), // strip styletags
       },
     ];
 

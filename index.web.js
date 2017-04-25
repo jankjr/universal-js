@@ -8,8 +8,6 @@ import App from './src/client/Web';
 import routes from './src/client/routes';
 
 
-const AppContainer = props => () => () => React.createElement(App, props);
-
 async function init() {
   const container = document.getElementById('app');
 
@@ -19,7 +17,7 @@ async function init() {
     query: queryString.parse(location.search),
   });
 
-  AppRegistry.registerComponent('reactAarhus', AppContainer({ route }));
+  AppRegistry.registerComponent('reactAarhus', () => () => React.createElement(App, { route }));
   AppRegistry.runApplication('reactAarhus', { rootTag: container });
 }
 
