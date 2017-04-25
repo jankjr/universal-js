@@ -6,6 +6,7 @@ import React, { PropTypes } from 'react';
 import queryString from 'query-string';
 import UniversalRouter from 'universal-router';
 import history from '../history';
+import routes from './routes';
 
 function updateTag(tagName, keyName, keyValue, attrName, attrValue) {
   const node = document.head.querySelector(`${tagName}[${keyName}="${keyValue}"]`);
@@ -29,7 +30,8 @@ if (window.history && 'scrollRestoration' in window.history) {
 }
 
 let currentLocation;
-class App extends React.PureComponent {
+
+class App extends React.Component {
   static propTypes = {
     route: PropTypes.object.isRequired,  // eslint-disable-line
   };
@@ -48,7 +50,6 @@ class App extends React.PureComponent {
   }
 
   async onLocationChange(location, action) {
-    const { routes } = this.props;
 
     // Remember the latest scroll position for the previous location
     scrollPositionsHistory[currentLocation.key] = {

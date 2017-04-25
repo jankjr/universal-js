@@ -9,7 +9,8 @@ import history from '../history';
 import routes from './routes';
 
 let currentLocation;
-class NativeApp extends React.PureComponent {
+
+class NativeApp extends React.Component {
   static propTypes = {
     route: PropTypes.object.isRequired,  // eslint-disable-line
   };

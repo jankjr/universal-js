@@ -49,11 +49,13 @@ app.get('*', async (req, res, next) => {
     const data = { ...route };
     AppRegistry.registerComponent('App', () => (() => route.component));
     const { element, stylesheet } = AppRegistry.getApplication('App', { });
-
     data.children = ReactDOMServer.renderToString(element);
 
     data.styles = [
-      { id: 'css', cssText: stylesheet },
+      {
+        id: 'react-native-stylesheet',
+        cssText: stylesheet.slice(37, stylesheet.length - 9), // strip styletags
+      },
     ];
 
     data.scripts = [

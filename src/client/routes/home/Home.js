@@ -7,8 +7,8 @@ export const Home = () => (
     <Text> This is home </Text>
     <Switch />
     <ActivityIndicator />
-    <Button title="foo" />
-    <Link to="/about"> Goto about page </Link>
+    <Button title="foo" onPress={() => 42} />
+    <Link to="/about"> Hello react aarhus </Link>
   </View>
 );
 
